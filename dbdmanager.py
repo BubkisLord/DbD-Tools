@@ -10,9 +10,11 @@ from random import *
 import unicodedata
 
 DB_PATH = "dbd_data.db"
+DEBUG = False
 
-# Setup logging to file and move old logs to logs/ folder
 def setup_logging():
+    if not DEBUG:
+        return
     log_dir = "logs"
     log_file = "latest.log"
     # Move old log file if exists
@@ -34,6 +36,7 @@ def setup_logging():
         except PermissionError:
             # If file is locked, skip moving
             pass
+
     # Setup logging to latest.log
     logging.basicConfig(
         level=logging.INFO,
