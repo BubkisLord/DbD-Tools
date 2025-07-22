@@ -194,7 +194,7 @@ function CustomMatchBuilds() {
                                     <h2 className="text-3xl font-extrabold mb-4 text-pink-400 tracking-wide drop-shadow z-10">
                                         Survivor {index + 1}:<br />
                                         <span className="text-4xl text-gray-100 font-black underline decoration-indigo-400 underline-offset-4 drop-shadow-lg">
-                                            {survivorBuild.survivor}
+                                            {survivorBuild.survivor.name}
                                         </span>
                                     </h2>
                                     <div className="relative z-10">
