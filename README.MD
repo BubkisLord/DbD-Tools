@@ -70,6 +70,30 @@ npm run start
 
 The frontend will be available at [http://localhost:3000](http://localhost:3000).
 
+### Quick Setup (Copy & Paste)
+
+- Clone the repository and install both backend and frontend dependencies in one go:
+
+```bash
+git clone https://github.com/BubkisLord/DbD-Tools.git
+cd "DbD-Tools"
+pip install -r requirements.txt
+cd frontend
+npm install
+```
+
+- Then in one terminal window, run the backend:
+
+```bash
+python dbdmanager.py
+```
+
+- And in another terminal window, run the frontend:
+
+```bash
+npm run start
+```
+
 ---
 
 ## Usage
