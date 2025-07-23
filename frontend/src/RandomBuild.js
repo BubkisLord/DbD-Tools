@@ -173,19 +173,18 @@ function RandomBuild() {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-100 flex flex-row items-start py-8">
+        <div className="h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-100 flex flex-col overflow-hidden">
             <Link
                 to="/"
-                className="text-indigo-400 hover:text-indigo-300 absolute font-medium text-sm mt-4 ml-4 z-20">
+                className="text-indigo-400 hover:text-indigo-300 absolute font-medium text-sm mt-8 ml-4 z-20">
                 ← Back to Home
             </Link>
-            <div className="flex-1">
-                <h1 className="text-5xl font-extrabold mb-4 text-indigo-400 drop-shadow-lg tracking-tight text-center">
+            <div className="flex-1 flex flex-col h-full overflow-hidden">
+                <h1 className="text-5xl font-extrabold my-4 text-indigo-400 drop-shadow-lg tracking-tight text-center">
                     DbD Random Build Generator
                 </h1>
-                <div className="flex flex-row items-start w-screen-xl mx-auto">
-                    {/* Settings Panel */}
-                    <div className="w-1/4 max-h-[850px] bg-gray-900/90 rounded-xl shadow-2xl p-8 mt-4 border border-gray-700 flex flex-col items-start text-left ml-4 mr-3">
+                <div className="flex flex-row items-start flex-1 mx-auto w-full gap-4 px-4 pb-4 overflow-hidden min-h-0">
+                    <div className="w-1/4 bg-gray-900/90 rounded-xl shadow-2xl p-8 border border-gray-700 flex flex-col items-start text-left h-full overflow-hidden">
                         <h2 className="text-2xl font-bold mb-4 text-indigo-300">
                             Settings
                         </h2>
@@ -207,13 +206,13 @@ function RandomBuild() {
                             </select>
                             <div className="flex flex-row items-start gap-2 w-full">
                                 <button
-                                    className="w-full bg-indigo-600 hover:bg-indigo-700 transition-colors px-5 py-2 rounded-lg font-semibold shadow focus:outline-none focus:ring-2 focus:ring-indigo-400 mt-4"
+                                    className="w-full bg-indigo-600 hover:bg-indigo-700 transition-colors px-2 py-2 rounded-lg font-semibold shadow focus:outline-none focus:ring-2 focus:ring-indigo-400 mt-4 text-xs"
                                     onClick={updateDatabase}
                                     disabled={loading}>
                                     Reinitialise Database
                                 </button>
                                 <button
-                                    className="w-full bg-green-600 hover:bg-green-700 transition-colors px-5 py-2 rounded-lg font-semibold shadow focus:outline-none focus:ring-2 focus:ring-green-400 mt-4"
+                                    className="w-full bg-green-600 hover:bg-green-700 transition-colors px-2 py-2 rounded-lg font-semibold shadow focus:outline-none focus:ring-2 focus:ring-green-400 mt-4 text-xs"
                                     onClick={fetchBuild}
                                     disabled={
                                         loading ||
@@ -238,35 +237,39 @@ function RandomBuild() {
                                 </div>
                             )}
                         </div>
-                        <div className="mb-4 w-full">
-                            <div className="flex gap-2 mb-2">
-                                <button
-                                    className="bg-indigo-600 hover:bg-indigo-700 px-3 py-1 rounded text-xs font-semibold"
-                                    onClick={selectAll}
-                                    disabled={loading}>
-                                    Select All
-                                </button>
-                                <button
-                                    className="bg-gray-700 hover:bg-gray-800 px-3 py-1 rounded text-xs font-semibold"
-                                    onClick={deselectAll}
-                                    disabled={loading}>
-                                    Deselect All
-                                </button>
-                                <input
-                                    type="checkbox"
-                                    checked={useOfferings}
-                                    onChange={(e) =>
-                                        setUseOfferings(e.target.checked)
-                                    }
-                                    className="accent-indigo-500"
-                                    disabled={loading}
-                                />
-                                <label className="text-sm text-gray-300">
-                                    Use Offerings
-                                </label>
+                        <div className="mb-4 w-full flex flex-col flex-1 overflow-hidden">
+                            <div className="flex gap-4 mb-2">
+                                <div className="flex items-center gap-2">
+                                    <button
+                                        className="bg-indigo-600 hover:bg-indigo-700 px-3 py-1 rounded text-xs font-semibold"
+                                        onClick={selectAll}
+                                        disabled={loading}>
+                                        Select All
+                                    </button>
+                                    <button
+                                        className="bg-gray-700 hover:bg-gray-800 px-3 py-1 rounded text-xs font-semibold"
+                                        onClick={deselectAll}
+                                        disabled={loading}>
+                                        Deselect All
+                                    </button>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                    <input
+                                        type="checkbox"
+                                        checked={useOfferings}
+                                        onChange={(e) =>
+                                            setUseOfferings(e.target.checked)
+                                        }
+                                        className="accent-indigo-500"
+                                        disabled={loading}
+                                    />
+                                    <label className="text-xs font-semibold text-gray-300">
+                                        Use Offerings
+                                    </label>
+                                </div>
                             </div>
                             <div
-                                className="overflow-y-auto max-h-[550px] border border-gray-800 rounded-md p-2 bg-gray-800/60 scrollbar-thin scrollbar-thumb-indigo-600 scrollbar-track-gray-900 scrollbar-thumb-rounded-full scrollbar-track-rounded-full"
+                                className="overflow-y-scroll flex-1 min-h-0 border border-gray-800 rounded-md p-2 bg-gray-800/60 scrollbar-thin scrollbar-thumb-indigo-600 scrollbar-track-gray-900 scrollbar-thumb-rounded-full scrollbar-track-rounded-full"
                                 style={{
                                     scrollbarColor: "#4f46e5 #1a202c",
                                     scrollbarWidth: "thin"
@@ -311,9 +314,8 @@ function RandomBuild() {
                     </div>
                     {build ? (
                         <div
-                            className="w-1/2 bg-gray-900/90 rounded-xl shadow-2xl p-8 mt-4 border border-gray-700 relative overflow-x-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-indigo-600 scrollbar-track-gray-900 scrollbar-thumb-rounded-full scrollbar-track-rounded-full"
+                            className="w-1/2 bg-gray-900/90 rounded-xl shadow-2xl p-8 border border-gray-700 relative overflow-x-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-indigo-600 scrollbar-track-gray-900 scrollbar-thumb-rounded-full scrollbar-track-rounded-full h-full"
                             style={{
-                                maxHeight: "850px",
                                 scrollbarColor: "#4f46e5 #1a202c",
                                 scrollbarWidth: "thin"
                             }}>
@@ -675,15 +677,14 @@ function RandomBuild() {
                         </div>
                     ) : (
                         <div
-                            className="w-1/2 min-h-[850px] bg-gray-900/90 rounded-xl shadow-2xl p-8 mt-4 border border-gray-700 relative overflow-x-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-indigo-600 scrollbar-track-gray-900 scrollbar-thumb-rounded-full scrollbar-track-rounded-full"
+                            className="w-1/2 bg-gray-900/90 rounded-xl shadow-2xl p-8 border border-gray-700 relative overflow-x-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-indigo-600 scrollbar-track-gray-900 scrollbar-thumb-rounded-full scrollbar-track-rounded-full h-full"
                             style={{
-                                maxHeight: "850px",
                                 scrollbarColor: "#4f46e5 #1a202c",
                                 scrollbarWidth: "thin"
                             }}
                         />
                     )}
-                    <div className="w-1/4 max-h-[850px] bg-gray-900/90 rounded-xl shadow-2xl p-8 mt-4 border border-gray-700 flex flex-col items-start text-left ml-3 mr-4">
+                    <div className="w-1/4 bg-gray-900/90 rounded-xl shadow-2xl p-8 border border-gray-700 flex flex-col items-start text-left h-full overflow-hidden">
                         <h2 className="text-2xl font-bold mb-4 text-indigo-300">
                             Import/Export
                         </h2>
@@ -753,7 +754,7 @@ function RandomBuild() {
                             </button>
                         </div>
                         {manualMode && (
-                            <div className="w-full mt-4">
+                            <div className="w-full flex-1 overflow-y-auto">
                                 <h3 className="text-lg font-bold mb-2 text-indigo-200">
                                     Manual Build Editor
                                 </h3>
@@ -803,7 +804,7 @@ function RandomBuild() {
                                             }
                                         />
                                         <div
-                                            className="overflow-y-auto max-h-[120px] border border-gray-800 rounded-md p-2 bg-gray-800/60 scrollbar-thin"
+                                            className="overflow-y-auto max-h-32 border border-gray-800 rounded-md p-2 bg-gray-800/60 scrollbar-thin"
                                             style={{
                                                 scrollbarColor:
                                                     "#4f46e5 #1a202c",
@@ -880,7 +881,7 @@ function RandomBuild() {
                                         }
                                     />
                                     <div
-                                        className="overflow-y-auto max-h-[180px] border border-gray-800 rounded-md p-2 bg-gray-800/60 scrollbar-thin"
+                                        className="overflow-y-auto max-h-40 border border-gray-800 rounded-md p-2 bg-gray-800/60 scrollbar-thin"
                                         style={{
                                             scrollbarColor: "#4f46e5 #1a202c",
                                             scrollbarWidth: "thin"
