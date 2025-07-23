@@ -28,7 +28,7 @@ A full-featured Python and React application for Dead by Daylight users to gener
 
 ```bash
 git clone https://github.com/BubkisLord/DbD-Tools.git
-cd "dbd-tools"
+cd "DbD-Tools"
 ```
 
 ### 2. Backend Setup (Python)
