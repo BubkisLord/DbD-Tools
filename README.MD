@@ -17,8 +17,19 @@ A full-featured Python and React application for Dead by Daylight users to gener
 
 ## Requirements
 
+### 1. Requirements to run the project
+
 - Python 3.12+ (for backend)
 - Node.js (for frontend)
+
+### 2. Requirements to setup the project
+
+- Git (to clone the repository)
+- NPM (to install frontend dependencies)
+
+### 3. Application Dependencies
+
+Check the `requirements.txt` file for Python dependencies and `package.json` for React dependencies, and use the commands below to install them.
 
 ---
 
