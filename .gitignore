@@ -1,0 +1,28 @@
+# .gitignore for DbD-Tools project
+
+# Database file
+*.db
+
+# log directories and files
+logs/
+*.log
+log/
+
+# dependencies
+/frontend/node_modules
+/frontend/.pnp
+/frontend/.pnp.js
+
+# production
+/frontend/build
+
+# misc
+frontend/.DS_Store
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
