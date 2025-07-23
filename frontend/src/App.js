@@ -39,7 +39,7 @@ function App() {
                     <button
                         onClick={() => navigate("/randomcustom")}
                         className="w-1/6 bg-cyan-700 hover:bg-cyan-800 transition-colors px-8 py-4 rounded-xl font-semibold text-lg shadow-xl focus:outline-none focus:ring-2 focus:ring-cyan-700">
-                        Custom Match Random Builds
+                        Custom Match Builds
                     </button>
                     <button
                         onClick={() => navigate("/nametheperk")}
